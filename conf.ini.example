@@ -1,0 +1,22 @@
+[DB_PRODUCTION]
+host = 127.0.0.1
+user =
+password =
+database =
+
+[DB_STAGING]
+host =
+user =
+password =
+database =
+
+[BACKUP]
+path=/home/dumps
+
+[BACKUP_NOTIFICATION]
+slack_url=https://hooks.slack.com/services/
+message=A new database backup is available.
+
+[CLONE_NOTIFICATION]
+slack_url=https://hooks.slack.com/services/
+message=The database has been replicated.
