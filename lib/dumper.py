@@ -10,7 +10,7 @@ def dump(Database, filepath="./dumps", compressed = True):
     ext = '.sql.gz' if compressed else '.sql'
     file = filepath + "/" + filename + ext
 
-    cmd = "mysqldump -h %s -u %s -p%s %s " + ("| gzip -c > %s" if compressed else "> %s")
+    cmd = "mysqldump -h %s -u %s -p%s --compact --column-statistics=0 --no-tablespaces --skip-definer %s " + ("| gzip -c > %s" if compressed else "> %s")
     
     os.system(cmd % (Database.host, Database.user, Database.password, Database.database, file))
     
