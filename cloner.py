@@ -36,11 +36,11 @@ def clone():
 
 	db.execute('''CREATE DATABASE %s''' % (db.database))
 
-	db.execute('''SET FOREIGN_KEY_CHECKS=0;''')
+	db.execute('''SET GLOBAL FOREIGN_KEY_CHECKS=0;''')
 
 	cmd = "mysql -h %s -u %s -p%s %s < %s" % (db.host, db.user, db.password, db.database, file)
 
-	db.execute('''SET FOREIGN_KEY_CHECKS=1;''')
+	db.execute('''SET GLOBAL FOREIGN_KEY_CHECKS=1;''')
 
 	os.system(cmd)
 
