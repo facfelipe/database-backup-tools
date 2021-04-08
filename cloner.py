@@ -40,9 +40,9 @@ def clone():
 
 	cmd = "mysql -h %s -u %s -p%s %s < %s" % (db.host, db.user, db.password, db.database, file)
 
-	db.execute('''SET GLOBAL FOREIGN_KEY_CHECKS=1;''')
-
 	os.system(cmd)
+
+	db.execute('''SET GLOBAL FOREIGN_KEY_CHECKS=1;''')
 
 	if(delete_file_after_clone):
 		os.system('rm ' + file)
